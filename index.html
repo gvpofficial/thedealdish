@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DealDish - Sustainable Surplus Food Marketplace</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Toast Notification System -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Main Navigation Header -->
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo" onclick="app.navigateTo('home')">
+                <i class="fa-solid fa-leaf logo-icon"></i>
+                <span class="logo-text">Deal<span class="highlight">Dish</span></span>
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="#" class="nav-link active" data-view="home" onclick="app.handleNavClick(event, 'home')">Home</a>
+                <a href="#" class="nav-link" data-view="explore" onclick="app.handleNavClick(event, 'explore')">Browse Deals</a>
+                <a href="#" class="nav-link" data-view="hotel" onclick="app.handleNavClick(event, 'hotel')">Hotel Portal</a>
+                <a href="#" class="nav-link" data-view="admin" onclick="app.handleNavClick(event, 'admin')">Admin Panel</a>
+            </nav>
+
+            <div class="header-actions">
+                <div id="user-profile-badge" class="user-badge hidden">
+                    <span class="user-role-tag" id="user-role-label">Role</span>
+                    <span class="user-name" id="user-name-label">User</span>
+                    <button class="btn-logout" onclick="app.logout()" title="Logout"><i class="fa-solid fa-sign-out-alt"></i></button>
+                </div>
+                <button id="btn-login-trigger" class="btn btn-primary" onclick="app.openAuthModal()">
+                    <i class="fa-solid fa-user-circle"></i> Sign In
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- SPA View Containers -->
+    <main class="main-content">
+        <!-- HOME VIEW (Landing Page) -->
+        <section id="view-home" class="view-section active">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <span class="hero-tagline"><i class="fa-solid fa-earth-americas"></i> Fostering A Sustainable Tomorrow</span>
+                    <h1 class="hero-title">Save Fresh Food,<br>Save Money, <span class="text-gradient">Protect Nature.</span></h1>
+                    <p class="hero-desc">
+                        DealDish bridges the gap between top hotels and local consumers. Retrieve delicious surplus meals at up to 70% off shortly before closing hours. Fresh quality, unbeatable prices, zero waste.
+                    </p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary btn-lg" onclick="app.navigateTo('explore')">
+                            <i class="fa-solid fa-compass"></i> Explore Deals
+                        </button>
+                        <button class="btn btn-secondary btn-lg" onclick="app.navigateTo('hotel')">
+                            <i class="fa-solid fa-store"></i> Hotel Partner Login
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="visual-card main-card">
+                        <img id="hero-illustration" src="hero_food.jpg" alt="Gourmet Meal Saving" class="hero-img">
+                        <div class="floating-badge badge-1">
+                            <i class="fa-solid fa-clock text-gold"></i>
+                            <div>
+                                <span>Closing Deals</span>
+                                <small>Ends in 45m</small>
+                            </div>
+                        </div>
+                        <div class="floating-badge badge-2">
+                            <i class="fa-solid fa-check-circle text-green"></i>
+                            <div>
+                                <span>FSSAI Certified</span>
+                                <small>100% Quality Audited</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fa-solid fa-bowl-food"></i></div>
+                    <div class="stat-details">
+                        <h3 id="stat-meals">1,482</h3>
+                        <p>Surplus Meals Saved</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fa-solid fa-cloud-arrow-down"></i></div>
+                    <div class="stat-details">
+                        <h3 id="stat-co2">3,705 kg</h3>
+                        <p>CO2 Emissions Prevented</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+                    <div class="stat-details">
+                        <h3 id="stat-money">₹296,400</h3>
+                        <p>Saved by Consumers</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- How It Works Section -->
+            <div class="section-container">
+                <h2 class="section-title text-center">How DealDish Works</h2>
+                <p class="section-subtitle text-center">Connecting surplus hotel kitchen inventory with local hungry bellies in three simple steps.</p>
+                
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-num">01</div>
+                        <h3>Hotels List Surplus</h3>
+                        <p>Hotels log kitchen surpluses (Biryani, Pastries, Buffet extras) 1-2 hours before closing at deep discounts.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-num">02</div>
+                        <h3>Reserve Instantly</h3>
+                        <p>Browse deals nearby, select your favorite meal, lock in your reservation and receive a secure pickup QR code.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-num">03</div>
+                        <h3>Collect Before Closing</h3>
+                        <p>Head to the hotel within the allotted pickup window, show your QR code to staff, retrieve your fresh meal and enjoy.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPLORE VIEW (Customer Portal) -->
+        <section id="view-explore" class="view-section">
+            <div class="explore-layout">
+                <aside class="filter-sidebar">
+                    <h3>Filters & Categories</h3>
+                    
+                    <div class="filter-group">
+                        <label class="filter-label">Search Food or Hotels</label>
+                        <div class="search-input-wrapper">
+                            <i class="fa-solid fa-search"></i>
+                            <input type="text" id="search-deals" placeholder="Search biryani, pastries, hotels..." onkeyup="app.filterDeals()">
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <label class="filter-label">Food Category</label>
+                        <div class="category-pills">
+                            <button class="pill active" data-category="all" onclick="app.setCategoryFilter('all')">All</button>
+                            <button class="pill" data-category="veg" onclick="app.setCategoryFilter('veg')">Vegetarian</button>
+                            <button class="pill" data-category="non-veg" onclick="app.setCategoryFilter('non-veg')">Non-Vegetarian</button>
+                            <button class="pill" data-category="bakery" onclick="app.setCategoryFilter('bakery')">Bakery & Sweets</button>
+                            <button class="pill" data-category="beverage" onclick="app.setCategoryFilter('beverage')">Beverages</button>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <label class="filter-label">Location (District)</label>
+                        <select id="filter-district" class="form-control" onchange="app.filterDeals()">
+                            <option value="all">All Districts</option>
+                            <option value="Thrissur">Thrissur</option>
+                            <option value="Ernakulam">Ernakulam</option>
+                            <option value="Palakkad">Palakkad</option>
+                            <option value="Malappuram">Malappuram</option>
+                        </select>
+                    </div>
+                    
+                    <div class="sustainability-tip">
+                        <h4><i class="fa-solid fa-leaf text-green"></i> Earth Impact</h4>
+                        <p>Every single meal saved keeps roughly 2.5 kg of CO2 equivalent emissions out of the atmosphere. Your choices make a difference!</p>
+                    </div>
+                </aside>
+
+                <div class="deals-content">
+                    <div class="deals-header">
+                        <h2>Available Surplus Deals</h2>
+                        <span id="deals-count-badge" class="count-badge">8 active deals</span>
+                    </div>
+
+                    <!-- Deals Grid -->
+                    <div id="deals-grid" class="deals-grid">
+                        <!-- Cards dynamically rendered here -->
+                    </div>
+                    
+                    <!-- Customer Dashboard (active reservations & history) -->
+                    <div class="customer-dashboard">
+                        <h2 class="section-title"><i class="fa-solid fa-clock-rotate-left"></i> Your Active Reservations</h2>
+                        <div id="active-reservations-list" class="reservations-grid">
+                            <!-- Active reservations rendered here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HOTEL VIEW (Hotel Portal) -->
+        <section id="view-hotel" class="view-section">
+            <div id="hotel-unauthenticated" class="auth-required-view">
+                <i class="fa-solid fa-store-slash auth-icon"></i>
+                <h2>Hotel Administration Area</h2>
+                <p>Register your hotel, submit food safety details, list daily surplus items, and verify customer order collections in real-time.</p>
+                <button class="btn btn-primary" onclick="app.openAuthModal('hotel')">
+                    <i class="fa-solid fa-sign-in-alt"></i> Sign In as Hotel Partner
+                </button>
+            </div>
+
+            <div id="hotel-authenticated" class="hotel-dashboard-layout hidden">
+                <div class="dashboard-sidebar">
+                    <div class="hotel-info-card">
+                        <i class="fa-solid fa-hotel hotel-avatar"></i>
+                        <h3 id="dash-hotel-name">Taj Residency</h3>
+                        <p class="hotel-fssai"><i class="fa-solid fa-id-card"></i> FSSAI: <span id="dash-hotel-fssai">12345678901234</span></p>
+                        <p id="dash-hotel-status" class="status-badge approved">Approved</p>
+                    </div>
+                    <nav class="dash-menu">
+                        <button class="dash-menu-item active" onclick="app.switchHotelTab('listings')">
+                            <i class="fa-solid fa-utensils"></i> Active Listings
+                        </button>
+                        <button class="dash-menu-item" onclick="app.switchHotelTab('add-item')">
+                            <i class="fa-solid fa-plus-circle"></i> List New Surplus
+                        </button>
+                        <button class="dash-menu-item" onclick="app.switchHotelTab('orders')">
+                            <i class="fa-solid fa-list-check"></i> Manage Pickups
+                        </button>
+                    </nav>
+                </div>
+
+                <div class="dashboard-main">
+                    <!-- Tab: Active Listings -->
+                    <div id="hotel-tab-listings" class="hotel-tab-content active">
+                        <div class="tab-header">
+                            <h2>Your Active Surplus Listings</h2>
+                            <button class="btn btn-primary" onclick="app.switchHotelTab('add-item')">
+                                <i class="fa-solid fa-plus"></i> List New Item
+                            </button>
+                        </div>
+                        <div class="table-wrapper">
+                            <table class="dashboard-table">
+                                <thead>
+                                    <tr>
+                                        <th>Food Item</th>
+                                        <th>Category</th>
+                                        <th>Price (Orig/Disc)</th>
+                                        <th>Qty Left</th>
+                                        <th>Pickup Window</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="hotel-listings-tbody">
+                                    <!-- Dynamic rows -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Tab: List New Surplus -->
+                    <div id="hotel-tab-add-item" class="hotel-tab-content">
+                        <div class="tab-header">
+                            <h2>Create New Surplus Listing</h2>
+                        </div>
+                        <form id="form-list-food" class="dashboard-form" onsubmit="app.handleListFood(event)">
+                            <div class="form-row">
+                                <div class="form-group col-6">
+                                    <label for="food-name">Food Item Name *</label>
+                                    <input type="text" id="food-name" class="form-control" placeholder="e.g. Chicken Biryani Combo" required>
+                                </div>
+                                <div class="form-group col-6">
+                                    <label for="food-category">Category *</label>
+                                    <select id="food-category" class="form-control" required>
+                                        <option value="veg">Vegetarian</option>
+                                        <option value="non-veg">Non-Vegetarian</option>
+                                        <option value="bakery">Bakery & Sweets</option>
+                                        <option value="beverage">Beverages</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-4">
+                                    <label for="food-orig-price">Original Menu Price (₹) *</label>
+                                    <input type="number" id="food-orig-price" class="form-control" min="1" placeholder="350" required>
+                                </div>
+                                <div class="form-group col-4">
+                                    <label for="food-disc-price">Discounted Price (₹) *</label>
+                                    <input type="number" id="food-disc-price" class="form-control" min="1" placeholder="120" required>
+                                </div>
+                                <div class="form-group col-4">
+                                    <label for="food-qty">Quantity Available (Portions) *</label>
+                                    <input type="number" id="food-qty" class="form-control" min="1" placeholder="5" required>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-6">
+                                    <label for="food-pickup-start">Pickup Start Time *</label>
+                                    <input type="time" id="food-pickup-start" class="form-control" required>
+                                </div>
+                                <div class="form-group col-6">
+                                    <label for="food-pickup-end">Pickup End Time (Hotel Close) *</label>
+                                    <input type="time" id="food-pickup-end" class="form-control" required>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-secondary" onclick="app.switchHotelTab('listings')">Cancel</button>
+                                <button type="submit" class="btn btn-primary"><i class="fa-solid fa-save"></i> Publish Surplus Listing</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Tab: Manage Pickups -->
+                    <div id="hotel-tab-orders" class="hotel-tab-content">
+                        <div class="tab-header">
+                            <h2>Reservations & Customer Pickups</h2>
+                        </div>
+                        <div class="table-wrapper">
+                            <table class="dashboard-table">
+                                <thead>
+                                    <tr>
+                                        <th>Reservation ID</th>
+                                        <th>Customer</th>
+                                        <th>Food Item</th>
+                                        <th>Quantity</th>
+                                        <th>Total Price</th>
+                                        <th>Reservation Time</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="hotel-orders-tbody">
+                                    <!-- Dynamic rows -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ADMIN VIEW (Admin Panel) -->
+        <section id="view-admin" class="view-section">
+            <div id="admin-unauthenticated" class="auth-required-view">
+                <i class="fa-solid fa-user-shield auth-icon"></i>
+                <h2>Platform Administration Console</h2>
+                <p>Verify registration credentials, audit FSSAI filings, monitor marketplace transactions, and view carbon footprint reductions.</p>
+                <button class="btn btn-primary" onclick="app.openAuthModal('admin')">
+                    <i class="fa-solid fa-lock"></i> Admin Sign In
+                </button>
+            </div>
+
+            <div id="admin-authenticated" class="admin-dashboard-layout hidden">
+                <div class="admin-grid-top">
+                    <div class="admin-stat-card">
+                        <div class="icon"><i class="fa-solid fa-hotel text-green"></i></div>
+                        <div class="details">
+                            <h3 id="admin-stat-hotels">4</h3>
+                            <p>Registered Hotels</p>
+                        </div>
+                    </div>
+                    <div class="admin-stat-card">
+                        <div class="icon"><i class="fa-solid fa-triangle-exclamation text-gold"></i></div>
+                        <div class="details">
+                            <h3 id="admin-stat-pending">1</h3>
+                            <p>Pending Approvals</p>
+                        </div>
+                    </div>
+                    <div class="admin-stat-card">
+                        <div class="icon"><i class="fa-solid fa-leaf text-green"></i></div>
+                        <div class="details">
+                            <h3 id="admin-stat-co2-saved">3,705 kg</h3>
+                            <p>Carbon Offsets</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="admin-main-grid">
+                    <!-- Column 1: FSSAI Audit Queue -->
+                    <div class="admin-card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-shield-halved"></i> Hotel Verification Queue</h3>
+                        </div>
+                        <div class="table-wrapper">
+                            <table class="dashboard-table">
+                                <thead>
+                                    <tr>
+                                        <th>Hotel Name</th>
+                                        <th>FSSAI Number</th>
+                                        <th>Location</th>
+                                        <th>Clearance</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="admin-pending-hotels-tbody">
+                                    <!-- Dynamic rows -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Column 2: Approved Partners list -->
+                    <div class="admin-card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-check-double"></i> Active Hotel Partners</h3>
+                        </div>
+                        <div class="table-wrapper">
+                            <table class="dashboard-table">
+                                <thead>
+                                    <tr>
+                                        <th>Hotel Name</th>
+                                        <th>FSSAI Number</th>
+                                        <th>Closing</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="admin-active-hotels-tbody">
+                                    <!-- Dynamic rows -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- AUTH MODAL -->
+    <div id="auth-modal" class="modal-overlay">
+        <div class="modal-container auth-modal-container">
+            <button class="modal-close" onclick="app.closeAuthModal()"><i class="fa-solid fa-times"></i></button>
+            <div class="auth-tabs">
+                <button id="auth-tab-login" class="auth-tab active" onclick="app.switchAuthTab('login')">Sign In</button>
+                <button id="auth-tab-signup" class="auth-tab" onclick="app.switchAuthTab('signup')">Register Hotel</button>
+            </div>
+
+            <!-- Login Form -->
+            <form id="form-login" class="auth-form active" onsubmit="app.handleLogin(event)">
+                <div class="form-group">
+                    <label for="login-email">Email Address</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" id="login-email" class="form-control" placeholder="customer@dealdish.com" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="login-password" class="form-control" placeholder="••••••••" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Role</label>
+                    <div class="role-selector">
+                        <label class="role-option">
+                            <input type="radio" name="login-role" value="customer" checked>
+                            <span class="role-box"><i class="fa-solid fa-user"></i> Customer</span>
+                        </label>
+                        <label class="role-option">
+                            <input type="radio" name="login-role" value="hotel">
+                            <span class="role-box"><i class="fa-solid fa-hotel"></i> Hotel</span>
+                        </label>
+                        <label class="role-option">
+                            <input type="radio" name="login-role" value="admin">
+                            <span class="role-box"><i class="fa-solid fa-user-shield"></i> Admin</span>
+                        </label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block btn-lg">Sign In</button>
+                <div class="demo-credentials">
+                    <p><strong>Demo Accounts:</strong></p>
+                    <ul>
+                        <li>Customer: <code>customer@dealdish.com</code> / <code>customer123</code></li>
+                        <li>Hotel: <code>taj@dealdish.com</code> / <code>taj123</code></li>
+                        <li>Admin: <code>admin@dealdish.com</code> / <code>admin123</code></li>
+                    </ul>
+                </div>
+            </form>
+
+            <!-- Signup Form (Hotel registration) -->
+            <form id="form-signup" class="auth-form" onsubmit="app.handleSignup(event)">
+                <div class="form-group">
+                    <label for="register-name">Hotel Name *</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-building"></i>
+                        <input type="text" id="register-name" class="form-control" placeholder="e.g. Royal Heritage Cafe" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Business Email *</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" id="register-email" class="form-control" placeholder="contact@heritage.com" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-6">
+                        <label for="register-phone">Phone Number *</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-phone"></i>
+                            <input type="text" id="register-phone" class="form-control" placeholder="9876543210" required>
+                        </div>
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="register-district">District *</label>
+                        <select id="register-district" class="form-control" required>
+                            <option value="Thrissur">Thrissur</option>
+                            <option value="Ernakulam">Ernakulam</option>
+                            <option value="Palakkad">Palakkad</option>
+                            <option value="Malappuram">Malappuram</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="register-fssai">FSSAI Registration Number (14 digits) *</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-file-shield"></i>
+                        <input type="text" id="register-fssai" class="form-control" placeholder="e.g. 12345678901234" maxlength="14" minlength="14" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-6">
+                        <label for="register-password">Password *</label>
+                        <input type="password" id="register-password" class="form-control" placeholder="••••••••" required>
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="register-close">Closing Time *</label>
+                        <input type="time" id="register-close" class="form-control" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block btn-lg">Submit Registration</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- RESERVATION CONFIRMATION MODAL -->
+    <div id="reservation-modal" class="modal-overlay">
+        <div class="modal-container reservation-modal-container">
+            <button class="modal-close" onclick="app.closeReservationModal()"><i class="fa-solid fa-times"></i></button>
+            <div class="modal-header-visual">
+                <i class="fa-solid fa-circle-check text-green"></i>
+                <h2>Reservation Locked!</h2>
+                <p>Show this code at pickup counter to pay & retrieve food.</p>
+            </div>
+            
+            <div class="reservation-details-card">
+                <div class="detail-row">
+                    <span>Reserved Item:</span>
+                    <strong id="res-detail-item">Chicken Biryani Combo</strong>
+                </div>
+                <div class="detail-row">
+                    <span>Hotel Supplier:</span>
+                    <strong id="res-detail-hotel">The Taj Residency</strong>
+                </div>
+                <div class="detail-row">
+                    <span>Quantity Reserved:</span>
+                    <strong id="res-detail-qty">2 Portions</strong>
+                </div>
+                <div class="detail-row">
+                    <span>Price Due at Counter:</span>
+                    <strong id="res-detail-price" class="text-gold">₹240</strong>
+                </div>
+                <div class="detail-row">
+                    <span>Pickup Window:</span>
+                    <strong id="res-detail-window" class="text-alert">10:00 PM - 11:00 PM</strong>
+                </div>
+            </div>
+
+            <!-- Fake QR Code Generator -->
+            <div class="qr-code-wrapper">
+                <div id="qr-box" class="qr-box">
+                    <div class="qr-pattern">
+                        <div class="qr-square top-left"></div>
+                        <div class="qr-square top-right"></div>
+                        <div class="qr-square bottom-left"></div>
+                        <div class="qr-code-inner">
+                            <i class="fa-solid fa-qrcode"></i>
+                        </div>
+                    </div>
+                </div>
+                <span class="qr-code-label" id="res-detail-id">R-74829</span>
+            </div>
+
+            <div class="alert-box warning">
+                <i class="fa-solid fa-circle-info"></i>
+                <p>This reservation expires automatically if not picked up by the closing time. Uncollected items will be canceled to maintain food safety.</p>
+            </div>
+
+            <button class="btn btn-secondary btn-block" onclick="app.closeReservationModal()">Done</button>
+        </div>
+    </div>
+
+    <!-- Background Decoration Grid -->
+    <div class="bg-decoration">
+        <div class="blur-blob blob-1"></div>
+        <div class="blur-blob blob-2"></div>
+        <div class="blur-blob blob-3"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
