@@ -1,5 +1,5 @@
 /* 
-  DealDish - Design System & Styling
+  TheDealDish - Design System & Styling
   Palette: Emerald Green, Soft Sage, Warm Amber, Dark Charcoal & Glassmorphism
 */
 
@@ -166,21 +166,10 @@ a {
     cursor: pointer;
 }
 
-.logo-icon {
-    font-size: 1.8rem;
-    color: var(--secondary);
-    filter: drop-shadow(0 2px 4px var(--primary-glow));
-}
-
-.logo-text {
-    font-family: var(--font-heading);
-    font-size: 1.6rem;
-    font-weight: 800;
-    color: var(--primary);
-}
-
-.logo-text .highlight {
-    color: var(--secondary);
+.logo-svg {
+    height: 42px;
+    width: auto;
+    display: block;
 }
 
 /* Nav Menu */

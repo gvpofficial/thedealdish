@@ -1,9 +1,9 @@
 /**
- * DealDish Single Page Application (SPA) Engine
+ * TheDealDish Single Page Application (SPA) Engine
  * State Management, Emulated Database (localStorage), and Portal Logic
  */
 
-class DealDishApp {
+class TheDealDishApp {
     constructor() {
         // Initialize Core State
         this.currentView = 'home';
@@ -34,10 +34,10 @@ class DealDishApp {
         // 1. Users Collection
         if (!localStorage.getItem('dd_users')) {
             const defaultUsers = [
-                { id: 'u-1', name: 'Gupthan Vishnu Prasad', email: 'customer@dealdish.com', passwordHash: 'customer123', role: 'customer', phone: '9876543210', district: 'Thrissur', isVerified: true },
-                { id: 'u-2', name: 'Manager Taj Residency', email: 'taj@dealdish.com', passwordHash: 'taj123', role: 'hotel', phone: '9895012345', district: 'Thrissur', isVerified: true },
-                { id: 'u-3', name: 'Manager Hyatt Plaza', email: 'hyatt@dealdish.com', passwordHash: 'hyatt123', role: 'hotel', phone: '9847055443', district: 'Ernakulam', isVerified: true },
-                { id: 'u-4', name: 'Platform Chief Admin', email: 'admin@dealdish.com', passwordHash: 'admin123', role: 'admin', phone: '9000100020', district: 'Thrissur', isVerified: true }
+                { id: 'u-1', name: 'Gupthan Vishnu Prasad', email: 'customer@thedealdish.com', passwordHash: 'customer123', role: 'customer', phone: '9876543210', district: 'Thrissur', isVerified: true },
+                { id: 'u-2', name: 'Manager Taj Residency', email: 'taj@thedealdish.com', passwordHash: 'taj123', role: 'hotel', phone: '9895012345', district: 'Thrissur', isVerified: true },
+                { id: 'u-3', name: 'Manager Hyatt Plaza', email: 'hyatt@thedealdish.com', passwordHash: 'hyatt123', role: 'hotel', phone: '9847055443', district: 'Ernakulam', isVerified: true },
+                { id: 'u-4', name: 'Platform Chief Admin', email: 'admin@thedealdish.com', passwordHash: 'admin123', role: 'admin', phone: '9000100020', district: 'Thrissur', isVerified: true }
             ];
             localStorage.setItem('dd_users', JSON.stringify(defaultUsers));
         }
@@ -85,7 +85,7 @@ class DealDishApp {
             const heroImg = document.getElementById('hero-illustration');
             if (heroImg) {
                 heroImg.addEventListener('error', () => {
-                    heroImg.src = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400"><defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="%2312422c"/><stop offset="100%" stop-color="%232c704c"/></linearGradient></defs><rect width="600" height="400" fill="url(%23g)"/><circle cx="150" cy="180" r="100" fill="%2322623d" opacity="0.6"/><circle cx="450" cy="220" r="140" fill="%232c784e" opacity="0.4"/><path d="M 100 250 Q 250 150 400 280 T 550 220" fill="none" stroke="%233ab36c" stroke-width="4" opacity="0.3"/><text x="50" y="80" fill="%23fff" font-family="'Outfit', sans-serif" font-weight="800" font-size="32">DealDish Ecosystem</text><text x="50" y="120" fill="%233ab36c" font-family="'Inter', sans-serif" font-weight="600" font-size="18">A Sustainable surplus marketplace</text><circle cx="300" cy="200" r="60" fill="%23fff" opacity="0.1"/><circle cx="300" cy="200" r="50" fill="%233ab36c" opacity="0.2"/><path d="M 275 190 L 295 210 L 325 180" fill="none" stroke="%23fff" stroke-width="6" stroke-linecap="round"/></svg>`;
+                    heroImg.src = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400"><defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="%2312422c"/><stop offset="100%" stop-color="%232c704c"/></linearGradient></defs><rect width="600" height="400" fill="url(%23g)"/><circle cx="150" cy="180" r="100" fill="%2322623d" opacity="0.6"/><circle cx="450" cy="220" r="140" fill="%232c784e" opacity="0.4"/><path d="M 100 250 Q 250 150 400 280 T 550 220" fill="none" stroke="%233ab36c" stroke-width="4" opacity="0.3"/><text x="50" y="80" fill="%23fff" font-family="'Outfit', sans-serif" font-weight="800" font-size="32">TheDealDish Ecosystem</text><text x="50" y="120" fill="%233ab36c" font-family="'Inter', sans-serif" font-weight="600" font-size="18">A Sustainable surplus marketplace</text><circle cx="300" cy="200" r="60" fill="%23fff" opacity="0.1"/><circle cx="300" cy="200" r="50" fill="%233ab36c" opacity="0.2"/><path d="M 275 190 L 295 210 L 325 180" fill="none" stroke="%23fff" stroke-width="6" stroke-linecap="round"/></svg>`;
                 });
                 // Force check if it failed before binding (only if it has completed loading)
                 if (heroImg.complete && heroImg.naturalWidth === 0) {
@@ -1057,4 +1057,4 @@ class DealDishApp {
 }
 
 // Instantiate Global Application
-const app = new DealDishApp();
+const app = new TheDealDishApp();
