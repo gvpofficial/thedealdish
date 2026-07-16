@@ -115,6 +115,7 @@ class TheDealDishApp {
         // Modals
         this.authModal = document.getElementById('auth-modal');
         this.reservationModal = document.getElementById('reservation-modal');
+        this.legalModal = document.getElementById('legal-modal');
 
         // Forms
         this.formLogin = document.getElementById('form-login');
@@ -195,6 +196,125 @@ class TheDealDishApp {
         this.authModal.classList.remove('active');
         this.formLogin.reset();
         this.formSignup.reset();
+    }
+
+    openLegalModal(type) {
+        if (!this.legalModal) return;
+        
+        const iconEl = document.getElementById('legal-modal-icon');
+        const titleEl = document.getElementById('legal-modal-title');
+        const subtitleEl = document.getElementById('legal-modal-subtitle');
+        const bodyEl = document.getElementById('legal-modal-body');
+        
+        let iconClass = 'fa-shield-halved';
+        let title = 'Privacy Policy';
+        let subtitle = 'How we protect your data at TheDealDish';
+        let content = '';
+
+        if (type === 'privacy') {
+            iconClass = 'fa-user-shield';
+            title = 'Privacy Policy';
+            subtitle = 'Data Collection & Protection Policy';
+            content = `
+                <h3>1. Information We Collect</h3>
+                <p>To provide a seamless experience on TheDealDish, we collect basic details. This includes:</p>
+                <ul>
+                    <li><strong>For Consumers:</strong> Name, email address, phone number, and district (for local deals matching).</li>
+                    <li><strong>For Hotel Partners:</strong> Hotel name, business email, contact number, district, and FSSAI registration number (to verify food safety clearance).</li>
+                </ul>
+                
+                <h3>2. How We Use Your Information</h3>
+                <p>We use the collected information to:</p>
+                <ul>
+                    <li>Create and manage user and hotel accounts.</li>
+                    <li>Facilitate instant deal reservations and generation of secure pickup QR codes.</li>
+                    <li>Verify food safety certifications with administrative audits.</li>
+                    <li>Improve our platform interface and sustainable marketplace operations.</li>
+                </ul>
+
+                <h3>3. Data Protection & Storage</h3>
+                <p>All user information is encrypted and stored securely. We do not sell or trade your personal identification details with third-party advertising companies. Your details are shared only to the minimum extent necessary to facilitate surplus food pickup confirmation between consumers and participating hotel staff.</p>
+
+                <h3>4. Food Safety & Compliance</h3>
+                <p>By registering, hotel partners provide FSSAI registration numbers which are audited by platform administrators to ensure absolute compliance with food safety regulations.</p>
+
+                <h3>5. Contact Us</h3>
+                <p>If you have any questions about this Privacy Policy or wish to modify or request deletion of your details, please contact us at <code>privacy@thedealdish.com</code>.</p>
+            `;
+        } else if (type === 'terms') {
+            iconClass = 'fa-file-contract';
+            title = 'Terms of Service';
+            subtitle = 'Ecosystem Rules & Fair Conduct';
+            content = `
+                <h3>1. Acceptance of Terms</h3>
+                <p>By creating an account or accessing TheDealDish platform, you agree to comply with and be bound by these Terms of Service. These rules ensure a fair and safe food saving marketplace.</p>
+
+                <h3>2. Nature of Surplus Deals</h3>
+                <p>Food items listed on TheDealDish are kitchen surpluses. They are sold at deep discounts because they are made available close to closing hours. All items are offered in fresh and edible condition under strict quality assurance.</p>
+
+                <h3>3. Reservation & Pickup Window</h3>
+                <p>When you reserve a deal, you lock in the price and quantity. You must present the reservation QR code and pay at the hotel counter before the pickup window expires (which aligns with the hotel's closing hours).</p>
+
+                <h3>4. No-Show & Cancellations</h3>
+                <p>Reserved food that is not picked up before closing time will be canceled and disposed of safely to prevent hygiene hazards. Repeated no-shows without cancellation may result in temporary account restrictions.</p>
+
+                <h3>5. Platform Fees & Settlement</h3>
+                <p>Transactions are settled directly at the hotel counter. TheDealDish is currently a matching platform and does not process direct payments or hold card details.</p>
+            `;
+        } else if (type === 'cookies') {
+            iconClass = 'fa-cookie-bite';
+            title = 'Cookie Settings';
+            subtitle = 'Essential Cookies & Local Storage';
+            content = `
+                <h3>1. How We Use Cookies</h3>
+                <p>TheDealDish uses cookies and browser local storage (<code>localStorage</code>) to enable basic functionality. We do not use third-party marketing or tracking cookies.</p>
+
+                <h3>2. Essential Cookies We Use</h3>
+                <ul>
+                    <li><strong>Authentication State:</strong> Stores session information so you do not need to sign in repeatedly.</li>
+                    <li><strong>Marketplace Preferences:</strong> Remembers your district filter setting to present the most relevant deals near you.</li>
+                    <li><strong>Local Emulated Database:</strong> Emulates backend collections for users, active deals, and reservation histories to make the app work smoothly.</li>
+                </ul>
+
+                <h3>3. Managing Your Cookies</h3>
+                <p>You can clear your browser's cookies and local storage at any time via your browser settings. Please note that clearing this data will sign you out and reset the demo environment state.</p>
+            `;
+        } else if (type === 'fssai') {
+            iconClass = 'fa-certificate';
+            title = 'FSSAI Rules';
+            subtitle = 'Food Safety Standards & Auditing';
+            content = `
+                <h3>1. FSSAI License Mandatory</h3>
+                <p>Under the Food Safety and Standards Act of India, all food business operators (FBOs) must be licensed. TheDealDish requires all participating hotels to provide their valid 14-digit FSSAI License or Registration number during signup.</p>
+
+                <h3>2. Platform Safety Audits</h3>
+                <p>Admin verification is required for all hotel accounts. Hotels cannot publish surplus listings on the marketplace until platform administrators audit and approve their submitted FSSAI license credentials.</p>
+
+                <h3>3. Quality & Hygiene Standards</h3>
+                <p>Hotel partners warrant that all listed surplus items:</p>
+                <ul>
+                    <li>Are prepared in FSSAI-compliant, hygienic kitchens.</li>
+                    <li>Are safe, fresh, and kept under proper temperature control prior to consumer pickup.</li>
+                    <li>Are clearly labeled with food categories (Vegetarian, Non-Vegetarian, Bakery, or Beverage).</li>
+                </ul>
+
+                <h3>4. Food Safety Auditing Contacts</h3>
+                <p>For safety complaints or reporting hygiene issues, users can reach the administrator or contact the national FSSAI helpdesk directly. Safe food is our absolute priority.</p>
+            `;
+        }
+
+        iconEl.className = `fa-solid ${iconClass} text-green`;
+        titleEl.textContent = title;
+        subtitleEl.textContent = subtitle;
+        bodyEl.innerHTML = content;
+        
+        this.legalModal.classList.add('active');
+    }
+
+    closeLegalModal() {
+        if (this.legalModal) {
+            this.legalModal.classList.remove('active');
+        }
     }
 
     switchAuthTab(tab) {

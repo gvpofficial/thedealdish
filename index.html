@@ -430,6 +430,72 @@
         </section>
     </main>
 
+    <!-- Main Page Footer -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="logo" onclick="app.navigateTo('home')">
+                    <img src="assets/logo.svg" alt="THEDEALDISH Logo" class="footer-logo-svg">
+                </div>
+                <p class="footer-desc">
+                    TheDealDish bridges the gap between top hotels and local consumers. Save high-quality surplus meals, reduce food waste, and protect the planet.
+                </p>
+                <div class="footer-socials">
+                    <a href="#" class="footer-social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="footer-social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="footer-social-link" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="footer-social-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li class="footer-link" onclick="app.navigateTo('home')">Home</li>
+                    <li class="footer-link" onclick="app.navigateTo('explore')">Browse Deals</li>
+                    <li class="footer-link" onclick="app.navigateTo('hotel')">Hotel Portal</li>
+                    <li class="footer-link" onclick="app.navigateTo('admin')">Admin Panel</li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Privacy & Legal</h3>
+                <ul class="footer-links">
+                    <li class="footer-link" onclick="app.openLegalModal('privacy')">Privacy Policy</li>
+                    <li class="footer-link" onclick="app.openLegalModal('terms')">Terms of Service</li>
+                    <li class="footer-link" onclick="app.openLegalModal('cookies')">Cookie Settings</li>
+                    <li class="footer-link" onclick="app.openLegalModal('fssai')">FSSAI Rules</li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact & Support</h3>
+                <div class="footer-contact-info">
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Kerala, India</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>support@thedealdish.com</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+91 83693 95993</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 TheDealDish. All rights reserved. Designed for a sustainable tomorrow.</p>
+            <div class="footer-bottom-links">
+                <span class="footer-bottom-link" onclick="app.openLegalModal('privacy')">Privacy Policy</span>
+                <span class="footer-bottom-link" onclick="app.openLegalModal('terms')">Terms of Use</span>
+            </div>
+        </div>
+    </footer>
+
     <!-- AUTH MODAL -->
     <div id="auth-modal" class="modal-overlay">
         <div class="modal-container auth-modal-container">
@@ -593,6 +659,24 @@
             </div>
 
             <button class="btn btn-secondary btn-block" onclick="app.closeReservationModal()">Done</button>
+        </div>
+    </div>
+
+    <!-- LEGAL DETAILS MODAL -->
+    <div id="legal-modal" class="modal-overlay">
+        <div class="modal-container legal-modal-container">
+            <button class="modal-close" onclick="app.closeLegalModal()"><i class="fa-solid fa-times"></i></button>
+            <div class="modal-header-visual">
+                <i id="legal-modal-icon" class="fa-solid fa-shield-halved text-green" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                <h2 id="legal-modal-title">Legal Details</h2>
+                <p id="legal-modal-subtitle">Ecosystem Terms & Guidelines</p>
+            </div>
+            
+            <div id="legal-modal-body" class="privacy-content-scroll">
+                <!-- Dynamically populated by JS -->
+            </div>
+
+            <button class="btn btn-secondary btn-block" onclick="app.closeLegalModal()">I Understand</button>
         </div>
     </div>
 
