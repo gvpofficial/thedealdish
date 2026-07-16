@@ -260,8 +260,8 @@ class TheDealDishApp {
                 <h3>1. Acceptance of Terms</h3>
                 <p>By creating an account or accessing TheDealDish platform, you agree to comply with and be bound by these Terms of Service. These rules ensure a fair and safe food saving marketplace.</p>
 
-                <h3>2. Nature of Surplus Deals</h3>
-                <p>Food items listed on TheDealDish are kitchen surpluses. They are sold at deep discounts because they are made available close to closing hours. All items are offered in fresh and edible condition under strict quality assurance.</p>
+                <h3>2. Nature of Surplus Deals & Seller Recovery</h3>
+                <p>Food items listed on TheDealDish are kitchen surpluses. They are offered at deep discounts shortly before closing hours to reduce food waste and help hotel partners recover raw material costs, avoiding total financial loss on unsold fresh food. All items are offered in fresh and edible condition under strict quality assurance.</p>
 
                 <h3>3. Reservation & Pickup Window</h3>
                 <p>When you reserve a deal, you lock in the price and quantity. You must present the reservation QR code and pay at the hotel counter before the pickup window expires (which aligns with the hotel's closing hours).</p>

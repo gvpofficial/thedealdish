@@ -1,7 +1,7 @@
 # THEDEALDISH 🍽️💚
 ### Fostering a Sustainable Tomorrow — One Deal at a Time
 
-**TheDealDish** is a premium, responsive Single Page Application (SPA) designed to bridge the gap between top hotels/restaurants and local consumers. The platform enables hotels to list fresh, high-quality surplus meals (such as buffet extras, pastries, or daily specials) at deep discounts (up to 70% off) shortly before closing hours. By connecting surplus kitchen inventory with hungry bellies, TheDealDish reduces food waste, lowers carbon emissions, and saves consumers money.
+**TheDealDish** is a premium, responsive Single Page Application (SPA) designed to bridge the gap between top hotels/restaurants and local consumers. The platform enables hotels to list fresh, high-quality surplus meals (such as buffet extras, pastries, or daily specials) at deep discounts (up to 70% off) shortly before closing hours. By connecting surplus kitchen inventory with hungry bellies, TheDealDish reduces food waste, lowers carbon emissions, saves consumers money, and **recovers revenue for sellers to prevent financial losses on unsold fresh food.**
 
 ---
 
@@ -19,6 +19,7 @@
 - **FSSAI Food Safety Compliance:** Mandatory 14-digit FSSAI licensing input to ensure quality control.
 - **Surplus Publishing:** Easily create active listings by inputting item names, categories, original menu prices, discount rates, quantities, and pickup windows.
 - **Collection Management:** Real-time dashboard to manage pending pickups and verify orders via customer QR codes.
+- **Revenue Recovery & Loss Prevention:** Turn potential food waste and raw material write-offs into recovered revenue by selling surplus stock close to closing hours.
 
 ### 🛡️ 3. Administrative Console (Audit & Verify)
 - **FSSAI Auditing Queue:** Administrators review submitted hotel registration details and FSSAI credentials.
