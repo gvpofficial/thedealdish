@@ -29,7 +29,7 @@
                 <a href="#" class="nav-link active" data-view="home" onclick="app.handleNavClick(event, 'home')">Home</a>
                 <a href="#" class="nav-link" data-view="explore" onclick="app.handleNavClick(event, 'explore')">Browse Deals</a>
                 <a href="#" class="nav-link" data-view="hotel" onclick="app.handleNavClick(event, 'hotel')">Hotel Portal</a>
-                <a href="#" class="nav-link" data-view="admin" onclick="app.handleNavClick(event, 'admin')">Admin Panel</a>
+                <a href="#" id="nav-link-admin" class="nav-link hidden" data-view="admin" onclick="app.handleNavClick(event, 'admin')">Admin Panel</a>
             </nav>
 
             <div class="header-actions">
@@ -454,7 +454,6 @@
                     <li class="footer-link" onclick="app.navigateTo('home')">Home</li>
                     <li class="footer-link" onclick="app.navigateTo('explore')">Browse Deals</li>
                     <li class="footer-link" onclick="app.navigateTo('hotel')">Hotel Portal</li>
-                    <li class="footer-link" onclick="app.navigateTo('admin')">Admin Panel</li>
                 </ul>
             </div>
 
@@ -532,10 +531,6 @@
                             <input type="radio" name="login-role" value="hotel">
                             <span class="role-box"><i class="fa-solid fa-hotel"></i> Hotel</span>
                         </label>
-                        <label class="role-option">
-                            <input type="radio" name="login-role" value="admin">
-                            <span class="role-box"><i class="fa-solid fa-user-shield"></i> Admin</span>
-                        </label>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block btn-lg">Sign In</button>
@@ -544,7 +539,6 @@
                     <ul>
                         <li>Customer: <code>customer@thedealdish.com</code> / <code>customer123</code></li>
                         <li>Hotel: <code>taj@thedealdish.com</code> / <code>taj123</code></li>
-                        <li>Admin: <code>admin@thedealdish.com</code> / <code>admin123</code></li>
                     </ul>
                 </div>
             </form>

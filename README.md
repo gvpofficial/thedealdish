@@ -44,7 +44,10 @@ To explore the different portals, you can log in using these pre-seeded demo acc
 | :--- | :--- | :--- | :--- |
 | **Consumer** | `customer@thedealdish.com` | `customer123` | Browse, filter, reserve deals, view active pickup QR codes. |
 | **Hotel Partner** | `taj@thedealdish.com` | `taj123` | Add surplus deals, review orders, manage active listings. |
-| **Platform Admin** | `admin@thedealdish.com` | `admin123` | Audit FSSAI licenses, approve/reject hotels, monitor metrics. |
+| **Platform Admin (Secret)** | `admin@thedealdish.com` | `admin123` | Directly logs in, shows the hidden Admin Panel in header. |
+
+> [!NOTE]
+> **Admin Panel Security:** To maintain platform security, the Admin role option is hidden from the public Sign In role selector, and the Admin Panel link is hidden from the header and footer. To log in as Admin, simply input the admin email and password above and submit the form directly. The app will auto-detect the credentials and log you in.
 
 ---
 
@@ -67,6 +70,19 @@ The platform features built-in legal policies accessible from the footer, includ
 - **Terms of Service:** Guidelines regarding reservation cancellation windows and surplus listing parameters.
 - **Cookie Settings:** Details on functional `localStorage` browser settings.
 - **FSSAI Rules:** Platform regulations enforcing valid safety licenses before restaurant activation.
+
+---
+
+## 🔄 Documentation & Policy Synchronization
+
+To ensure that any updates to the website features, credentials, or policies are immediately reflected in our developer documentation and legal modals:
+
+1. **AI Agent Rules:** Project-level rules are defined in [.antigravity/rules.md](file:///D:/gvp%20codes/thedealdish/.antigravity/rules.md) and [.agents/rules.md](file:///D:/gvp%20codes/thedealdish/.agents/rules.md). AI coding assistants (like Google Antigravity) will automatically inspect and update `README.md` and the legal modal definitions in `app.js` whenever modifying the website logic.
+2. **Git pre-commit Hook:** A Git pre-commit hook is set up at [.githooks/pre-commit](file:///D:/gvp%20codes/thedealdish/.githooks/pre-commit). It checks if you have modified website code files (`index.html`, `style.css`, `app.js`) without staging corresponding documentation updates (`README.md` or legal modal text in `app.js`).
+   - If not already active, enable the hook in your local checkout:
+     ```bash
+     git config core.hooksPath .githooks
+     ```
 
 ---
 

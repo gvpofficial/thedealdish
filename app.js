@@ -117,6 +117,9 @@ class TheDealDishApp {
         this.reservationModal = document.getElementById('reservation-modal');
         this.legalModal = document.getElementById('legal-modal');
 
+        // Navigation
+        this.navLinkAdmin = document.getElementById('nav-link-admin');
+
         // Forms
         this.formLogin = document.getElementById('form-login');
         this.formSignup = document.getElementById('form-signup');
@@ -146,9 +149,17 @@ class TheDealDishApp {
             this.userRoleLabel.textContent = this.currentUser.role;
             this.userRoleLabel.className = `user-role-tag ${this.currentUser.role}`;
             this.userNameLabel.textContent = this.currentUser.name.split(' ')[0];
+            
+            // Show Admin Panel link only to logged-in admins
+            if (this.currentUser.role === 'admin') {
+                if (this.navLinkAdmin) this.navLinkAdmin.classList.remove('hidden');
+            } else {
+                if (this.navLinkAdmin) this.navLinkAdmin.classList.add('hidden');
+            }
         } else {
             this.btnLoginTrigger.classList.remove('hidden');
             this.userProfileBadge.classList.add('hidden');
+            if (this.navLinkAdmin) this.navLinkAdmin.classList.add('hidden');
         }
     }
 
@@ -335,7 +346,10 @@ class TheDealDishApp {
         e.preventDefault();
         const email = document.getElementById('login-email').value.trim();
         const pass = document.getElementById('login-password').value;
-        const role = document.querySelector('input[name="login-role"]:checked').value;
+        
+        // Auto-detect special admin credentials to bypass the visible role selector
+        const isAdmin = (email === 'admin@thedealdish.com' && pass === 'admin123');
+        const role = isAdmin ? 'admin' : document.querySelector('input[name="login-role"]:checked').value;
 
         const users = JSON.parse(localStorage.getItem('dd_users') || '[]');
         const user = users.find(u => u.email === email && u.passwordHash === pass && u.role === role);
