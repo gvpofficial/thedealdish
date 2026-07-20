@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1200" height="380" viewBox="0 0 1200 380"
+     role="img" aria-labelledby="title desc">
+  <title id="title">TheDealDish - Fostering a Sustainable Tomorrow — One Deal at a Time</title>
+  <desc id="desc">Visual hero banner showing the brand typography, sustainable cloche logo, a mockup of an active surplus food listing, and environmental impact counters.</desc>
+
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#05120a" />
+      <stop offset="100%" stop-color="#0a2214" />
+    </linearGradient>
+
+    <!-- Emerald Glow / Plate Cover Gradient -->
+    <linearGradient id="iconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b6631" />
+      <stop offset="100%" stop-color="#3ab36c" />
+    </linearGradient>
+
+    <!-- Leaf Green Gradient -->
+    <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a3e635" />
+      <stop offset="100%" stop-color="#22c55e" />
+    </linearGradient>
+
+    <!-- Card Background Gradient -->
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0b2317" />
+      <stop offset="100%" stop-color="#071b11" />
+    </linearGradient>
+    
+    <!-- Accent Amber Glow -->
+    <radialGradient id="amberGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f5a00a" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#f5a00a" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Base Canvas Card -->
+  <rect width="1200" height="380" rx="24" fill="url(#bgGrad)" stroke="#164d30" stroke-width="2"/>
+
+  <!-- Subtle grid lines in background for depth -->
+  <path d="M 0 100 L 1200 100 M 0 200 L 1200 200 M 0 300 L 1200 300 M 200 0 L 200 380 M 400 0 L 400 380 M 600 0 L 600 380 M 800 0 L 800 380 M 1000 0 L 1000 380" 
+        stroke="#143c26" stroke-width="0.5" stroke-dasharray="10 15" opacity="0.4" />
+
+  <!-- Left Side: Brand & Value Proposition -->
+  <g id="title-block" transform="translate(64, 0)">
+    <!-- Brand / Cloche Icon Header -->
+    <g transform="translate(0, 56)">
+      <!-- Cloche Base -->
+      <path d="M 2 32 Q 20 40 38 32" fill="none" stroke="#3ab36c" stroke-width="3" stroke-linecap="round" />
+      <!-- Food Cover / Cloche (Slightly Lifted) -->
+      <path d="M 8 24 A 12 12 0 0 1 32 24 Z" fill="url(#iconGrad)"/>
+      <!-- Cloche Handle -->
+      <circle cx="20" cy="11" r="2.5" fill="#a3e635"/>
+      <!-- Sprouting Leaf (Green / Sustainable) -->
+      <path d="M 23 20 C 27 15 35 15 37 10 C 33 13 28 17 25 22 Z" fill="url(#leafGrad)"/>
+      <path d="M 25 22 C 28 19 32 18 35 14" fill="none" stroke="#05120a" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+
+      <!-- Label -->
+      <text x="52" y="27" fill="#3ab36c" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="13" letter-spacing="0.2em">SUSTAINABLE SURPLUS MARKETPLACE</text>
+    </g>
+
+    <!-- Main Title -->
+    <text x="0" y="152" font-family="'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="58" font-weight="400" fill="#ffffff">
+      THE<tspan fill="#3ab36c" font-weight="800">DEALDISH</tspan>
+    </text>
+
+    <!-- Value Statement (Split for readability & wrapping) -->
+    <text x="0" y="202" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif" font-size="19" font-weight="400" fill="#a0c0b0" line-height="1.5">
+      Bridging the gap between top hotels and local consumers.
+    </text>
+    <text x="0" y="230" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif" font-size="19" font-weight="400" fill="#a0c0b0">
+      Save fresh surplus food, recover seller loss, and protect nature.
+    </text>
+
+    <!-- Badges / Metadata Row -->
+    <g transform="translate(0, 276)">
+      <!-- FSSAI Compliant Badge -->
+      <rect x="0" y="0" width="180" height="34" rx="17" fill="#113622" stroke="#226b43" stroke-width="1.5" />
+      <circle cx="18" cy="17" r="5" fill="#3ab36c" />
+      <text x="32" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="600" fill="#ffffff">FSSAI Safety Verified</text>
+
+      <!-- Live Carbon Offset -->
+      <rect x="194" y="0" width="200" height="34" rx="17" fill="#113622" stroke="#226b43" stroke-width="1.5" />
+      <path d="M 207 19 L 211 23 L 219 13" fill="none" stroke="#a3e635" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <text x="228" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="600" fill="#ffffff">Real-Time Carbon Offset</text>
+    </g>
+  </g>
+
+  <!-- Right Side: Proof & UI Specimen -->
+  <g id="project-proof" transform="translate(730, 0)">
+    <!-- Decorative Glow behind the Card -->
+    <circle cx="205" cy="190" r="180" fill="url(#amberGlow)" pointer-events="none" />
+
+    <!-- Main Mockup Deal Card -->
+    <rect x="0" y="55" width="410" height="270" rx="20" fill="url(#cardGrad)" stroke="#1c4732" stroke-width="2" />
+
+    <!-- Card Header / Food Image Simulation -->
+    <g transform="translate(20, 75)">
+      <!-- Decorative food visual pattern -->
+      <rect width="370" height="100" rx="12" fill="#06180f" />
+      <!-- Radial visual elements -->
+      <circle cx="80" cy="50" r="35" fill="#0d281a" stroke="#1c4732" stroke-width="1" />
+      <path d="M 60 50 Q 80 62 100 50" fill="none" stroke="#3ab36c" stroke-width="2" opacity="0.6" />
+      <!-- Sprouting leaf motif inside food frame -->
+      <path d="M 75 40 C 80 32 90 32 93 25 C 88 29 82 34 79 40" fill="#a3e635" opacity="0.8"/>
+      
+      <!-- Category Badge overlay -->
+      <rect x="270" y="15" width="85" height="24" rx="12" fill="#113622" stroke="#226b43" stroke-width="1" />
+      <text x="312" y="31" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="#3ab36c" text-anchor="middle">NON-VEG</text>
+
+      <!-- Deal Title & Hotel -->
+      <text x="135" y="44" font-family="'Outfit', sans-serif" font-size="18" font-weight="700" fill="#ffffff">Grand Buffet Selection</text>
+      <text x="135" y="65" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="500" fill="#3ab36c">Taj Palace Hotel &amp; Suites</text>
+    </g>
+
+    <!-- Pricing Row -->
+    <g transform="translate(20, 195)">
+      <text x="0" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" fill="#8ba89b" text-decoration="line-through">₹350</text>
+      <text x="45" y="25" font-family="'Outfit', sans-serif" font-size="28" font-weight="800" fill="#ffffff">₹120</text>
+      
+      <!-- Discount Badge -->
+      <rect x="130" y="4" width="70" height="22" rx="6" fill="#f5a00a" />
+      <text x="165" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="#05120a" text-anchor="middle">65% OFF</text>
+
+      <!-- Portions Left Warning -->
+      <text x="370" y="20" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="600" fill="#ef4444" text-anchor="end">⚠️ Only 3 portions left!</text>
+    </g>
+
+    <!-- Card Footer / Actions -->
+    <g transform="translate(20, 250)">
+      <!-- Clock Icon / Pickup Window -->
+      <rect x="0" y="0" width="165" height="34" rx="17" fill="rgba(245, 160, 10, 0.08)" stroke="rgba(245, 160, 10, 0.25)" stroke-width="1" />
+      <circle cx="20" cy="17" r="7" fill="none" stroke="#f5a00a" stroke-width="1.5"/>
+      <path d="M 20 13 L 20 17 L 24 17" fill="none" stroke="#f5a00a" stroke-width="1.5" stroke-linecap="round"/>
+      <text x="36" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="600" fill="#f5a00a">Pickup ends in 45m</text>
+
+      <!-- Reserve Button Mockup -->
+      <rect x="220" y="0" width="150" height="34" rx="17" fill="#3ab36c" />
+      <text x="295" y="22" font-family="'Outfit', sans-serif" font-size="12" font-weight="700" fill="#05120a" text-anchor="middle">Reserve Portion</text>
+    </g>
+
+    <!-- Floating Badge 1 (Overlap Top Right): Sustainability Stats -->
+    <g transform="translate(290, 32)">
+      <rect width="110" height="42" rx="10" fill="#0d281a" stroke="#1c4732" stroke-width="1.5" />
+      <text x="55" y="19" font-family="'Outfit', sans-serif" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">1,482 SAVED</text>
+      <text x="55" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="9" font-weight="600" fill="#8ba89b" text-anchor="middle">Surplus Meals</text>
+    </g>
+
+    <!-- Floating Badge 2 (Overlap Bottom Left): Carbon Offset -->
+    <g transform="translate(-25, 275)">
+      <rect width="125" height="42" rx="10" fill="#0d281a" stroke="#1c4732" stroke-width="1.5" />
+      <text x="62.5" y="19" font-family="'Outfit', sans-serif" font-size="12" font-weight="700" fill="#a3e635" text-anchor="middle">-3.7 TONS</text>
+      <text x="62.5" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="9" font-weight="600" fill="#8ba89b" text-anchor="middle">CO₂ Equivalent</text>
+    </g>
+  </g>
+</svg>
